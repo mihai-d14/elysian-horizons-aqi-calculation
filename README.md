@@ -13,7 +13,7 @@ The ```calculate_aqi_for_pollutant``` function is used to calculate AQI for a sp
 
 The ```calculate_air_quality_score``` function is used to convert AQI to our own 1-100 score: AQI ≤ 1 scores 100, each point increase reduces the score by 1 until AQI 99 (score 1), with AQI ≥ 100 scoring 0.
 
-We use the ```fetch_air_quality``` function to fetch air quality metrics for each one of our properties, and the ```calculate_aqi_for_pollutant``` to calculate the AQI:
+We use the ```fetch_air_quality``` function to fetch air quality metrics for each one of our properties, and the ```calculate_aqi_for_pollutant``` to calculate the AQI, including unit conversions:
 
          ```# Fetching historical air quality data
             measurements = fetch_air_quality(ad['latitude'], ad['longitude'])
