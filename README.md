@@ -11,7 +11,9 @@ The ```fetch_air_quality``` function is used to fetch air quality metrics for ev
 
 The ```calculate_aqi_for_pollutant``` function is used to calculate AQI for a specific pollutant using EPA breakpoints, according to EPA Technical Document Table 6.
 
-The ```calculate_air_quality_score``` function is used to convert AQI to our own 1-100 score: AQI ≤ 1 scores 100, each point increase reduces the score by 1 until AQI 99 (score 1), with AQI ≥ 100 scoring 0.
+The ```calculate_air_quality_score``` function is used to convert AQI to our own 1-100 score using a linear scale where each 3-point increase in EPA AQI reduces our score by 1 point:
+- If EPA AQI ≥ 300 (hazardous), our score is 0
+- Otherwise, our score = 100 - (EPA_AQI / 3), rounded to nearest integer
 
 We use the ```fetch_air_quality``` function to fetch air quality metrics for each one of our properties, and the ```calculate_aqi_for_pollutant``` to calculate the AQI, including unit conversions:
 
